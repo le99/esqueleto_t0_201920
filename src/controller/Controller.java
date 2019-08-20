@@ -36,63 +36,70 @@ public class Controller {
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
-					System.out.println("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
-				    int capacidad = lector.nextInt();
-				    modelo = new MVCModelo(capacidad); 
-					System.out.println("Arreglo Dinamico creado");
-					System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					System.out.println("--------- \nRealizar Consulta \nDar número de mes a consultar: ");
+				    int mes = lector.nextInt();
+				    //modelo = new MVCModelo(mes); 
+					System.out.println("Dar identificador numerico de la zona de origen");
+					int id = lector.nextInt();
+					
+					//Hacer consulta
+								
 					break;
 
-				case 2:
-					System.out.println("--------- \nDar cadena (simple) a ingresar: ");
-					dato = lector.next();
-					modelo.agregar(dato);
-					System.out.println("Dato agregado");
-					System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 3:
-					System.out.println("--------- \nDar cadena (simple) a buscar: ");
-					dato = lector.next();
-					respuesta = modelo.buscar(dato);
-					if ( respuesta != null)
-					{
-						System.out.println("Dato encontrado: "+ respuesta);
-					}
-					else
-					{
-						System.out.println("Dato NO encontrado");
-					}
-					System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 4:
-					System.out.println("--------- \nDar cadena (simple) a eliminar: ");
-					dato = lector.next();
-					respuesta = modelo.eliminar(dato);
-					if ( respuesta != null)
-					{
-						System.out.println("Dato eliminado "+ respuesta);
-					}
-					else
-					{
-						System.out.println("Dato NO eliminado");							
-					}
-					System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 5: 
-					System.out.println("--------- \nContenido del Arreglo: ");
-					view.printModelo(modelo);
-					System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					
+				case 2: 
+					System.out.println("--------- \n Consulta de estadisticas \n---------"); 
+					System.out.println("Ingrese la consulta que desee realizar");
+					System.out.println("1. Total de viajes en el semestre");
+					System.out.println("2. Total de viajes reportados en un mes especifico");
+					System.out.println("3. Total de viaje reportados de un mes específico y una zona de origen especifico.");
+					System.out.println("Oprima 1,2 o 3, y luego la tecla Return.");
+					
+					int opcion= lector.nextInt();
+					
+					switch(option)
+						{
+							case 1:
+								//Realizar consulta
+								System.out.println();
+								break;
+								
+							case 2:
+								System.out.println("Dar número de mes a consultar: ");
+							    int mes2 = lector.nextInt();
+							    //modelo = new MVCModelo(mes); 
+								System.out.println("Dar identificador numerico de la zona de origen");
+								int id2 = lector.nextInt();
+								
+								//Realizar consulta
+								
+								System.out.println();
+								break;
+								
+							case 3:
+								System.out.println("Dar número de mes a consultar: ");
+							    int mes3 = lector.nextInt();
+							    //modelo = new MVCModelo(mes); 
+								System.out.println("Dar identificador numerico de la zona de origen");
+								int id3 = lector.nextInt();
+								
+								//Realizar consulta
+								
+								System.out.println();
+								break;
+								
+							default:
+								System.out.println("--------- \n Opcion Invalida !! \n---------");
+								break;															
+						}
 					break;	
 					
-				case 6: 
-					System.out.println("--------- \n Hasta pronto !! \n---------"); 
+				case 3:
+					System.out.println("--------- \nHasta pronto! \n ");
 					lector.close();
 					fin = true;
-					break;	
-
+					break;
+					
 				default: 
 					System.out.println("--------- \n Opcion Invalida !! \n---------");
 					break;
