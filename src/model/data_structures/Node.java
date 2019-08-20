@@ -47,7 +47,7 @@ private static class Node<Item>
 	*	Metodo que retorna el nodo siguiente
 	* 	@return Nodo siguiente
 	*/
-	public Node<T> darSiguiente()
+	public Node<Item> darSiguiente()
 	{
 		return siguiente; 
 	}
@@ -57,7 +57,7 @@ private static class Node<Item>
 	*	Metodo que retorna el nodo anterior
 	* 	@return Nodo anterior
 	*/
-	public Node<T> darAnterior()
+	public Node<Item> darAnterior()
 	{
 		return anterior; 
 	}
@@ -67,7 +67,7 @@ private static class Node<Item>
 	*	Metodo que cambia el nodo anterior 
 	* 	@param e Nodo a cambiar
 	*/
-	public void cambiarAnterior( Node<T> e)
+	public void cambiarAnterior( Node<Item> e)
 	{
 		anterior = e; 
 	}
@@ -77,7 +77,7 @@ private static class Node<Item>
 	*	Metodo que cambia el nodo siguiente 
 	* 	@param e Nodo a cambiar
 	*/
-	public void cambiarSiguiente( Node<T> e)
+	public void cambiarSiguiente( Node<Item> e)
 	{
 		siguiente = e; 
 	}
