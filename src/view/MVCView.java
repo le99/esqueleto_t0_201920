@@ -20,7 +20,7 @@ public class MVCView
 			
 			System.out.println("Oprima 2 para iniciar una consulta de estadisticas generales, luego oprimir tecla Return: (e.g., 2):");
 			
-			System.out.println("Oprima 3 para salir del programa, luego oprimir tecla Return: (e.g., 3):");
+			System.out.println("Oprima 3 para salir del programa, luego oprimir tecla Return: (e.g., 3):");//
 		}
 
 		public void printMessage(String mensaje) {
