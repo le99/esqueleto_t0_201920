@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 public class LinkedQueue<Item> implements Iterable<Item> 
 {
 	/*
+	*
 	*	Numero de elementos en la lista
 	*/
     private int n;     
