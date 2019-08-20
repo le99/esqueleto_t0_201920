@@ -10,6 +10,7 @@ import model.data_structures.LinkedQueue;
 
 public class TestLinkedQueue 
 {
+// 
 	
 	private LinkedQueue lista;
 	
@@ -31,6 +32,5 @@ public class TestLinkedQueue
 		assertEquals(0, lista.size());
 	}
 
-	
 
 }
