@@ -3,6 +3,7 @@ private static class Node<Item>
 
 	/**
 	* Atributo que modela el parametro de la clase  
+	*
 	*/
 	private Item data;
 
@@ -10,6 +11,13 @@ private static class Node<Item>
 	*	Atributo que modela el Nodo siguiente
 	*/
 	private Node<Item> siguiente;
+
+	/**
+	*	Atributo que modela el Nodo anterior
+	*/
+	private Node<Item> anterior;
+
+
 
 
 
@@ -20,15 +28,64 @@ private static class Node<Item>
 	/**
 	*	Constructor de la clase
 	*	@param pData 
-	*	@param pSIguiente Nodo siguiente 
+	*	@param pSiguiente Nodo siguiente 
+	*	@param pAnterior Nodo anterior
 	*/
-	public Node( Item pData, Node<Item> pSiguiente)
+	public Node( Item pData, Node<Item> pSiguiente, Node<Item> pAnterior)
 	{
-		this.data = data;
+		data = pData;
 
-		this.siguiente = pSiguiente;
+		siguiente = pSiguiente;
+
+		anterior = pAnterior;
 
 	}
+
+
+
+	/**
+	*	Metodo que retorna el nodo siguiente
+	* 	@return Nodo siguiente
+	*/
+	public Node<T> darSiguiente()
+	{
+		return siguiente; 
+	}
+
+
+	/**
+	*	Metodo que retorna el nodo anterior
+	* 	@return Nodo anterior
+	*/
+	public Node<T> darAnterior()
+	{
+		return anterior; 
+	}
+
+
+	/**
+	*	Metodo que cambia el nodo anterior 
+	* 	@param e Nodo a cambiar
+	*/
+	public void cambiarAnterior( Node<T> e)
+	{
+		anterior = e; 
+	}
+
+
+	/**
+	*	Metodo que cambia el nodo siguiente 
+	* 	@param e Nodo a cambiar
+	*/
+	public void cambiarSiguiente( Node<T> e)
+	{
+		siguiente = e; 
+	}
+
+
+
+
+
 
 
 }
