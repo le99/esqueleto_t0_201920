@@ -10,7 +10,6 @@ import model.data_structures.LinkedQueue;
 
 public class TestLinkedQueue 
 {
-// 
 	
 	private LinkedQueue lista;
 	
