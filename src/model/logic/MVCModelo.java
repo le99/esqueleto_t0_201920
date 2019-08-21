@@ -1,14 +1,17 @@
 package model.logic;
 
 
+import java.awt.List;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 
 import com.opencsv.CSVReader;
 
 
 import model.data_structures.LinkedQueue;
+
 
 /**
  * Definicion del modelo del mundo
@@ -75,17 +78,14 @@ public class MVCModelo {
 		{
 				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate (1).csv"));
 				
-				int i=1;
 				
-				while(i<7)
-				{
-					reader.readNext();
-					i++;
-				}
+				reader.readNext();
+				
+				
 				
 				for(String[] nextLine : reader)
 				{
-					Viaje actual= new Viaje(Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Integer.parseInt(nextLine[3]),Integer.parseInt(nextLine[4]),Integer.parseInt(nextLine[5]),Integer.parseInt(nextLine[6]));
+					Viaje actual= new Viaje(Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]),Double.parseDouble(nextLine[5]),Double.parseDouble(nextLine[6]));
 					lista.agregar(actual);
 				}
 			
@@ -108,17 +108,13 @@ public class MVCModelo {
 		{
 				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-MonthlyAggregate (1).csv"));
 				
-				int i=1;
 				
-				while(i<7)
-				{
-					reader.readNext();
-					i++;
-				}
+				reader.readNext();
+				
 				
 				for(String[] nextLine : reader)
 				{
-					Viaje actual= new Viaje(Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Integer.parseInt(nextLine[3]),Integer.parseInt(nextLine[4]),Integer.parseInt(nextLine[5]),Integer.parseInt(nextLine[6]));
+					Viaje actual= new Viaje(Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]),Double.parseDouble(nextLine[5]),Double.parseDouble(nextLine[6]));
 					lista.agregar(actual);
 				}
 			
@@ -139,5 +135,43 @@ public class MVCModelo {
 		}
 	}
 
-
+	public LinkedQueue consultarViajesMZ(int mes, int zona)
+	{
+		LinkedQueue listaV= new LinkedQueue();
+		
+		Iterator iter= lista.iterator();
+		
+		while(iter.hasNext())
+		{
+			Viaje actual= (Viaje)iter.next();
+			
+			if(actual.getSourceID()==zona&& actual.getMonth()==mes)
+			{
+				listaV.agregar(actual);;
+			}
+		}
+		
+		return listaV;
+	}
+	
+	public LinkedQueue consultarViajesM(int mes)
+	{
+		LinkedQueue listaV= new LinkedQueue();
+		
+		Iterator iter= lista.iterator();
+		
+		while(iter.hasNext())
+		{
+			Viaje actual= (Viaje)iter.next();
+			
+			if(actual.getMonth()==mes)
+			{
+				listaV.agregar(actual);;
+			}
+		}
+		
+		return listaV;
+	}
+	
+	
 }

@@ -10,17 +10,17 @@ public class Viaje
 	
 	private int month;
 	
-	private int meanTravelTime;
+	private double meanTravelTime;
 	
-	private int standardDeviationTravelTime;
+	private double standardDeviationTravelTime;
 	
-	private int geometricMeanTravelTime;
+	private double geometricMeanTravelTime;
 	
-	private int geometricStandardDeviationTravelTime;
+	private double geometricStandardDeviationTravelTime;
 	
 	//Constructor
 	
-	public Viaje (int p1, int p2, int p3, int p4, int p5, int p6, int p7)
+	public Viaje (int p1, int p2, int p3, double p4, double p5, double p6, double p7)
 	{
 		sourceID=p1;
 		dstID=p2;
@@ -59,35 +59,35 @@ public class Viaje
 		this.month = month;
 	}
 
-	public int getMeanTravelTime() {
+	public double getMeanTravelTime() {
 		return meanTravelTime;
 	}
 
-	public void setMeanTravelTime(int meanTravelTime) {
+	public void setMeanTravelTime(double meanTravelTime) {
 		this.meanTravelTime = meanTravelTime;
 	}
 
-	public int getStandardDeviationTravelTime() {
+	public double getStandardDeviationTravelTime() {
 		return standardDeviationTravelTime;
 	}
 
-	public void setStandardDeviationTravelTime(int standardDeviationTravelTime) {
+	public void setStandardDeviationTravelTime(double standardDeviationTravelTime) {
 		this.standardDeviationTravelTime = standardDeviationTravelTime;
 	}
 
-	public int getGeometricMeanTravelTime() {
+	public double getGeometricMeanTravelTime() {
 		return geometricMeanTravelTime;
 	}
 
-	public void setGeometricMeanTravelTime(int geometricMeanTravelTime) {
+	public void setGeometricMeanTravelTime(double geometricMeanTravelTime) {
 		this.geometricMeanTravelTime = geometricMeanTravelTime;
 	}
 
-	public int getGeometricStandardDeviationTravelTime() {
+	public double getGeometricStandardDeviationTravelTime() {
 		return geometricStandardDeviationTravelTime;
 	}
 
-	public void setGeometricStandardDeviationTravelTime(int geometricStandardDeviationTravelTime) {
+	public void setGeometricStandardDeviationTravelTime(double geometricStandardDeviationTravelTime) {
 		this.geometricStandardDeviationTravelTime = geometricStandardDeviationTravelTime;
 	}
 	

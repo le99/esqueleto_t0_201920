@@ -1,9 +1,12 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Scanner;
 
+import model.data_structures.LinkedQueue;
 import model.logic.MVCModelo;
+import model.logic.Viaje;
 import view.MVCView;
 
 public class Controller {
@@ -49,7 +52,15 @@ public class Controller {
 					System.out.println("Dar identificador numerico de la zona de origen");
 					int id = lector.nextInt();
 					
-					//Hacer consulta
+					LinkedQueue lista= modelo.consultarViajesMZ(mes, id);
+					
+					Iterator iter= lista.iterator();
+					
+					while(iter.hasNext())
+					{
+						Viaje actual= (Viaje)iter.next();
+						System.out.println("Zona origen: "+ actual.getSourceID()+ " , Zona destino: "+ actual.getDstID() + " , Tiempo promedio: "+ actual.getMeanTravelTime() + " , Desviación estándar: "+ actual.getStandardDeviationTravelTime());
+					}
 								
 					break;
 
@@ -67,20 +78,17 @@ public class Controller {
 					switch(option)
 						{
 							case 1:
-								//Realizar consulta
-								System.out.println();
+								System.out.println("Total de viajes reportados en el semestre: "+ modelo.darTamano());
 								break;
 								
 							case 2:
 								System.out.println("Dar número de mes a consultar: ");
 							    int mes2 = lector.nextInt();
-							    //modelo = new MVCModelo(mes); 
-								System.out.println("Dar identificador numerico de la zona de origen");
-								int id2 = lector.nextInt();
-								
-								//Realizar consulta
-								
-								System.out.println();
+			 
+								LinkedQueue lista2= modelo.consultarViajesM(mes2);
+								int cantidad= lista2.size();
+
+								System.out.println("El total de viajes del mes: "+ mes2+" es: "+cantidad+" y su porcentaje con respecto a todos los viajes del semestre es: "+ (cantidad*100)/modelo.darTamano()+"%");
 								break;
 								
 							case 3:
@@ -90,9 +98,11 @@ public class Controller {
 								System.out.println("Dar identificador numerico de la zona de origen");
 								int id3 = lector.nextInt();
 								
-								//Realizar consulta
+								LinkedQueue lista3= modelo.consultarViajesMZ(mes3, id3);
+								int cantidad2= lista3.size();
 								
-								System.out.println();
+								
+								System.out.println("El total de viajes del mes: "+ mes3+" y la zona de origen: "+id3+" es: "+cantidad2+" y su porcentaje con respecto a todos los viajes del semestre es: "+ (cantidad2*100)/modelo.darTamano()+"%");
 								break;
 								
 							default:
