@@ -76,7 +76,7 @@ public class MVCModelo {
 		CSVReader reader = null;
 		try 
 		{
-				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate (1).csv"));
+				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate.csv"));
 				
 				
 				reader.readNext();
@@ -106,7 +106,7 @@ public class MVCModelo {
 		}
 		try 
 		{
-				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-MonthlyAggregate (1).csv"));
+				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-MonthlyAggregate.csv"));
 				
 				
 				reader.readNext();

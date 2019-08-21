@@ -75,7 +75,7 @@ public class Controller {
 					
 					int opcion= lector.nextInt();
 					
-					switch(option)
+					switch(opcion)
 						{
 							case 1:
 								System.out.println("Total de viajes reportados en el semestre: "+ modelo.darTamano());
@@ -102,7 +102,7 @@ public class Controller {
 								int cantidad2= lista3.size();
 								
 								
-								System.out.println("El total de viajes del mes: "+ mes3+" y la zona de origen: "+id3+" es: "+cantidad2+" y su porcentaje con respecto a todos los viajes del semestre es: "+ (cantidad2*100)/modelo.darTamano()+"%");
+								System.out.println("El total de viajes del mes: "+ mes3+" y la zona de origen: "+id3+" es: "+cantidad2+" y su porcentaje con respecto a todos los viajes del semestre es: "+ (double)(cantidad2*100)/modelo.darTamano()+"%");
 								break;
 								
 							default:
