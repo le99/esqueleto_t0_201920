@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.logic.MVCModelo;
@@ -25,6 +26,12 @@ public class Controller {
 		
 	public void run() 
 	{
+		try {
+			modelo.cargarArchivos();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
 		String dato = "";

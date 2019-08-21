@@ -1,7 +1,14 @@
 package model.logic;
 
-import model.data_structures.ArregloDinamico;
-import model.data_structures.IArregloDinamico;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.opencsv.CSVReader;
+
+
+import model.data_structures.LinkedQueue;
 
 /**
  * Definicion del modelo del mundo
@@ -11,24 +18,17 @@ public class MVCModelo {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private IArregloDinamico datos;
+	private LinkedQueue lista;
 	
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
 	public MVCModelo()
 	{
-		datos = new ArregloDinamico(7);
+		lista = new LinkedQueue();
 	}
 	
-	/**
-	 * Constructor del modelo del mundo con capacidad dada
-	 * @param tamano
-	 */
-	public MVCModelo(int capacidad)
-	{
-		datos = new ArregloDinamico(capacidad);
-	}
+	
 	
 	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
@@ -36,7 +36,7 @@ public class MVCModelo {
 	 */
 	public int darTamano()
 	{
-		return datos.darTamano();
+		return lista.size();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class MVCModelo {
 	 */
 	public void agregar(String dato)
 	{	
-		datos.agregar(dato);
+		lista.agregar(dato);
 	}
 	
 	/**
@@ -55,7 +55,7 @@ public class MVCModelo {
 	 */
 	public String buscar(String dato)
 	{
-		return datos.buscar(dato);
+		//return lista.buscar(dato);
 	}
 	
 	/**
@@ -65,7 +65,78 @@ public class MVCModelo {
 	 */
 	public String eliminar(String dato)
 	{
-		return datos.eliminar(dato);
+		//return lista.eliminar(dato);
+	}
+	
+	public void cargarArchivos() throws IOException
+	{
+		CSVReader reader = null;
+		try 
+		{
+				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate (1).csv"));
+				
+				int i=1;
+				
+				while(i<7)
+				{
+					reader.readNext();
+					i++;
+				}
+				
+				for(String[] nextLine : reader)
+				{
+					Viaje actual= new Viaje(Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Integer.parseInt(nextLine[3]),Integer.parseInt(nextLine[4]),Integer.parseInt(nextLine[5]),Integer.parseInt(nextLine[6]));
+					lista.agregar(actual);
+				}
+			
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		finally{
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		try 
+		{
+				reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-MonthlyAggregate (1).csv"));
+				
+				int i=1;
+				
+				while(i<7)
+				{
+					reader.readNext();
+					i++;
+				}
+				
+				for(String[] nextLine : reader)
+				{
+					Viaje actual= new Viaje(Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Integer.parseInt(nextLine[3]),Integer.parseInt(nextLine[4]),Integer.parseInt(nextLine[5]),Integer.parseInt(nextLine[6]));
+					lista.agregar(actual);
+				}
+			
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		finally{
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
 	}
 
 
