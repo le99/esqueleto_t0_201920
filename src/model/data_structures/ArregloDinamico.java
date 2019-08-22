@@ -1,4 +1,5 @@
 package model.data_structures;
+import java.util.*;
 
 /**
  * 2019-01-23
@@ -57,21 +58,41 @@ public class ArregloDinamico implements IArregloDinamico {
 			return tamanoAct;
 		}
 
-		public String darElemento(int i) {
+		public String darElemento(int j) 
+    {
 			// TODO implementar
-			return null;
+      String retorno = "";
+      boolean parar = false; 
+      for( int i = 0; i < elementos.length && !parar; i++)
+      {
+        if(elementos[i].equals(elementos[j]))
+        {
+          parar = true; 
+          retorno = elementos[i];
+        }
+      }
+      return retorno; 
 		}
 
 		public String buscar(String dato) {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
+			String retorno = "";
+      for( int i = 0; i < elementos.length; i++)
+      {
+        if( elementos[i].compareTo(dato) >= 1)
+        {
+          retorno = elementos[i];
+        }
+      }
+
+      return retorno;
 		}
 
-		public String eliminar(String dato) {
+		public String eliminar(String dato) 
+    {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
 		}
 
 }
