@@ -70,9 +70,20 @@ public class LinkedQueue<Item> implements Iterable<Item>
         if (isEmpty()) throw new NoSuchElementException("Desbordamiento de Queue");
         return primero.item;
     }
+    
+    /**
+     * Retorna el último elemento agregado
+     * @return El último elemento agregado
+     * @throws java.util.NoSuchElementException si el queue está vacío
+     */
+    public Item bottom() 
+    {
+        if (isEmpty()) throw new NoSuchElementException("Desbordamiento de Queue");
+        return ultimo.item;
+    }
 
     /**
-     * Agrega un elemento al queue
+     * Agrega un elemento al final del queue
      * @param item item a agregar
      */
     public void agregar(Item item) 
@@ -181,21 +192,4 @@ public class LinkedQueue<Item> implements Iterable<Item>
         }
     }
 
-
-    /**
-     * Unit tests the {@code LinkedQueue} data type.
-     *
-     * @param args the command-line arguments
-     */
-    public static void main(String[] args) {
-        LinkedQueue<String> queue = new LinkedQueue<String>();
-        while (!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if (!item.equals("-"))
-                queue.enqueue(item);
-            else if (!queue.isEmpty())
-                StdOut.print(queue.eliminar() + " ");
-        }
-        StdOut.println("(" + queue.size() + " left on queue)");
-    }
 }

@@ -1,4 +1,6 @@
-private static class Node<Item>
+package model.data_structures;
+
+public class Node<Item>
 {
 
 	/**
@@ -16,11 +18,6 @@ private static class Node<Item>
 	*	Atributo que modela el Nodo anterior
 	*/
 	private Node<Item> anterior;
-
-
-
-
-
 
 	///////////////////////////////////
 	/////	Constructor		///////////
