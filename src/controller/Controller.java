@@ -42,7 +42,7 @@ public class Controller {
 
 		while( !fin )
 		{
-			//Esperar 2 segundos para que el usuario pueda leer
+			//Esperar 3,5 segundos para que el usuario pueda leer
 			try {
 				Thread.sleep(3500);
 			} catch (InterruptedException e) {
